@@ -42,6 +42,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let recordName = "recordedVoice.wav"
         let pathArray = [dirPath,recordName]
         let filePath = URL(string: pathArray.joined(separator:"/"))
+        
         //sharedInstance
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
