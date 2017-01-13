@@ -38,7 +38,7 @@ class ShowInfoViewController: UIViewController {
     
     //깃헙으로 넘어가는 버튼을 눌렀을 때 url로 이동, 버튼 하이퍼링크 연결 연습을 위해 넣어봄
     @IBAction func TouchUpInsideBtnHyperlinkGithub(_ sender: Any) {
-        let github_url = URL(string:"https://github.com/BoostCamp/Pitchperfect_Jay-Soi-")
+        let github_url = URL(string:"https://github.com/hanjungv/PitchPerfect_Custom")
         UIApplication.shared.open(github_url!)
     }
     
@@ -98,11 +98,12 @@ class ShowInfoViewController: UIViewController {
     
     //녹음된 목소리 그대로를 듣고 싶을 때 작동.
     @IBAction func TouchUpInsideBtnPlayPureRecord(_ sender: Any) {
+        
         Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateAudioProgressView), userInfo: nil, repeats: true)
+        
         RecordProgressBar.setProgress(Float(audioPlayer.currentTime/audioPlayer.duration), animated: false)
         audioPlayer.play()
     }
-    
     
     
     // Error message, dismiss 부분 OK로 수정
