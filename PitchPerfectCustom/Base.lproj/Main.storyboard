@@ -220,17 +220,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="BtnChipmunk" destination="Z6t-ow-XAK" id="dfF-Q3-nWj"/>
+                        <outlet property="BtnEcho" destination="cok-XV-L2z" id="Sc7-o4-sDW"/>
                         <outlet property="BtnPlaySelectedOptions" destination="kxo-cm-El6" id="LvX-4P-FcB"/>
+                        <outlet property="BtnRabbit" destination="yAy-GT-LSv" id="Omc-k7-Hkq"/>
                         <outlet property="BtnReset" destination="yNP-Av-Lqc" id="eeH-QP-rjY"/>
+                        <outlet property="BtnReverb" destination="oKx-Eg-vq5" id="fh9-ik-EVF"/>
+                        <outlet property="BtnSnail" destination="iRi-EC-tCv" id="9oR-Y4-ZJu"/>
+                        <outlet property="BtnStop" destination="odJ-wR-Ste" id="psS-Dd-gIN"/>
+                        <outlet property="BtnVader" destination="jhH-5E-xtl" id="KF7-xg-Ol5"/>
                         <outlet property="LblNoticeExtraFunctions" destination="5Yk-N5-UIe" id="fBN-cz-yTr"/>
                         <outlet property="RecordProgressBar" destination="Xko-GL-joQ" id="5IP-Zc-TIU"/>
-                        <outlet property="chipmunkButton" destination="Z6t-ow-XAK" id="c3v-P1-J3C"/>
-                        <outlet property="echoButton" destination="cok-XV-L2z" id="EDM-qE-Yef"/>
-                        <outlet property="rabbitButton" destination="yAy-GT-LSv" id="YKD-si-zCB"/>
-                        <outlet property="reverbButton" destination="oKx-Eg-vq5" id="5TE-VE-zgp"/>
-                        <outlet property="snailButton" destination="iRi-EC-tCv" id="BiR-qf-YVO"/>
-                        <outlet property="stopButton" destination="odJ-wR-Ste" id="xEg-WK-2VW"/>
-                        <outlet property="vaderButton" destination="jhH-5E-xtl" id="uxm-db-ROP"/>
                         <segue destination="9F4-I4-pdB" kind="show" identifier="ShowInfo" id="W7V-Cb-oMo"/>
                     </connections>
                 </viewController>

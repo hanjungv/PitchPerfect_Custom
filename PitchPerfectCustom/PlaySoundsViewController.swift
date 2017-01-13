@@ -12,13 +12,13 @@ import AVFoundation
 class PlaySoundsViewController: UIViewController {
 
     //IBOutlet connect
-    @IBOutlet weak var snailButton: UIButton!
-    @IBOutlet weak var chipmunkButton: UIButton!
-    @IBOutlet weak var rabbitButton: UIButton!
-    @IBOutlet weak var vaderButton: UIButton!
-    @IBOutlet weak var echoButton: UIButton!
-    @IBOutlet weak var reverbButton: UIButton!
-    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var BtnSnail: UIButton!
+    @IBOutlet weak var BtnChipmunk: UIButton!
+    @IBOutlet weak var BtnRabbit: UIButton!
+    @IBOutlet weak var BtnVader: UIButton!
+    @IBOutlet weak var BtnEcho: UIButton!
+    @IBOutlet weak var BtnReverb: UIButton!
+    @IBOutlet weak var BtnStop: UIButton!
     @IBOutlet weak var BtnReset: UIButton!
     @IBOutlet weak var BtnPlaySelectedOptions: UIButton!
     @IBOutlet weak var LblNoticeExtraFunctions: UILabel!
@@ -46,11 +46,11 @@ class PlaySoundsViewController: UIViewController {
             if ArrCheckedOptions[1] == false{
                 if ArrCheckedOptions[0] == false{
                     ArrCheckedOptions[0] = true
-                    snailButton.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
+                    BtnSnail.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
                 }
                 else{
                     ArrCheckedOptions[0] = false
-                    snailButton.backgroundColor = UIColor.white
+                    BtnSnail.backgroundColor = UIColor.white
                 }
             } else{
                 showAlert("같은 속성을 선택했습니다", message: "선택하시려면 토끼를 해제해주세요")
@@ -60,11 +60,11 @@ class PlaySoundsViewController: UIViewController {
             if ArrCheckedOptions[0] == false{
                 if ArrCheckedOptions[1] == false{
                     ArrCheckedOptions[1] = true
-                    rabbitButton.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
+                    BtnRabbit.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
                 }
                 else{
                     ArrCheckedOptions[1] = false
-                    rabbitButton.backgroundColor = UIColor.white
+                    BtnRabbit.backgroundColor = UIColor.white
                 }
             } else{
                 showAlert("같은 속성을 선택했습니다", message: "선택하시려면 달팽이를 해제해주세요")
@@ -74,11 +74,11 @@ class PlaySoundsViewController: UIViewController {
             if ArrCheckedOptions[3] == false{
                 if ArrCheckedOptions [2] == false{
                     ArrCheckedOptions[2] = true
-                    chipmunkButton.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
+                    BtnChipmunk.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
                 }
                 else{
                     ArrCheckedOptions[2] = false
-                    chipmunkButton.backgroundColor = UIColor.white
+                    BtnChipmunk.backgroundColor = UIColor.white
                 }
             } else{
                 showAlert("같은 속성을 선택했습니다", message: "선택하시려면 다스베이더를 해제해주세요")
@@ -88,11 +88,11 @@ class PlaySoundsViewController: UIViewController {
             if ArrCheckedOptions[2] == false{
                 if ArrCheckedOptions[3] == false{
                     ArrCheckedOptions[3] = true
-                    vaderButton.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
+                    BtnVader.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
                 }
                 else{
                     ArrCheckedOptions[3] = false
-                    vaderButton.backgroundColor = UIColor.white
+                    BtnVader.backgroundColor = UIColor.white
                 }
             } else{
                 showAlert("같은 속성을 선택했습니다", message: "선택하시려면 다람쥐를 해제해주세요")
@@ -101,21 +101,21 @@ class PlaySoundsViewController: UIViewController {
         if sender.tag == 4{
             if ArrCheckedOptions[4] == false{
                 ArrCheckedOptions[4] = true
-                echoButton.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
+                BtnEcho.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
             }
             else{
                 ArrCheckedOptions[4] = false
-                echoButton.backgroundColor = UIColor.white
+                BtnEcho.backgroundColor = UIColor.white
             }
         }
         if sender.tag == 5{
             if ArrCheckedOptions[5] == false{
                 ArrCheckedOptions[5] = true
-                reverbButton.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
+                BtnReverb.backgroundColor = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
             }
             else{
                 ArrCheckedOptions[5] = false
-                reverbButton.backgroundColor = UIColor.white
+                BtnReverb.backgroundColor = UIColor.white
             }
         }
     }
@@ -125,12 +125,12 @@ class PlaySoundsViewController: UIViewController {
     // reset 버튼을 누르면 체크 했던 옵션이 초기화 되고 배경색 또한 원래대로 돌아오게 됩니다.
     @IBAction func TouchUpBtnReset(_ sender: Any) {
         ArrCheckedOptions = [false,false,false,false,false,false]
-        rabbitButton.backgroundColor = UIColor.white
-        snailButton.backgroundColor = UIColor.white
-        chipmunkButton.backgroundColor = UIColor.white
-        vaderButton.backgroundColor = UIColor.white
-        echoButton.backgroundColor = UIColor.white
-        reverbButton.backgroundColor = UIColor.white
+        BtnRabbit.backgroundColor = UIColor.white
+        BtnSnail.backgroundColor = UIColor.white
+        BtnChipmunk.backgroundColor = UIColor.white
+        BtnVader.backgroundColor = UIColor.white
+        BtnEcho.backgroundColor = UIColor.white
+        BtnReverb.backgroundColor = UIColor.white
     }
     
     //선택된 옵션을 실행하는 함수 입니다. pitch와 rate를 체크했는지 확인해 주고 playSound 메서드에 넣어주게 됩니다.
@@ -173,7 +173,7 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.playing)
     }
     
-    //stopbutton 누르면 stopAudio 메서드 작동
+    //BtnStop 누르면 stopAudio 메서드 작동
     @IBAction func TouchUpBtnStop(_ sender: AnyObject) {
         stopAudio()
     }

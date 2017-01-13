@@ -158,20 +158,20 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         switch(playState) {
         case .playing:
             setPlayButtonsEnabled(false)
-            stopButton.isEnabled = true
+            BtnStop.isEnabled = true
         case .notPlaying:
             setPlayButtonsEnabled(true)
-            stopButton.isEnabled = false
+            BtnStop.isEnabled = false
         }
     }
     
     func setPlayButtonsEnabled(_ enabled: Bool) {
-        snailButton.isEnabled = enabled
-        chipmunkButton.isEnabled = enabled
-        rabbitButton.isEnabled = enabled
-        vaderButton.isEnabled = enabled
-        echoButton.isEnabled = enabled
-        reverbButton.isEnabled = enabled
+        BtnSnail.isEnabled = enabled
+        BtnChipmunk.isEnabled = enabled
+        BtnRabbit.isEnabled = enabled
+        BtnVader.isEnabled = enabled
+        BtnEcho.isEnabled = enabled
+        BtnReverb.isEnabled = enabled
     }
     
     // Error message, dismiss 부분 OK로 수정
