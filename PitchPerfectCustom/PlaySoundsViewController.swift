@@ -11,7 +11,8 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
 
-    //IBOutlet connect
+    // MARK : IBOutlet connect
+    
     @IBOutlet weak var BtnSnail: UIButton!
     @IBOutlet weak var BtnChipmunk: UIButton!
     @IBOutlet weak var BtnRabbit: UIButton!
@@ -32,6 +33,8 @@ class PlaySoundsViewController: UIViewController {
     var audioPlayer: AVAudioPlayer!
     var CurrentDate: String!
     
+    
+    // MARK : Set Tag
     //tag를 주고 사용. slow(0) -> fast(1) -> chipmunk(2) -> .... -> reverb(5)
     enum ButtonType: Int {
         case slow = 0, fast, chipmunk, vader, echo, reverb
@@ -40,6 +43,7 @@ class PlaySoundsViewController: UIViewController {
     // 체크한 옵션을 담는 Bool형 Array입니다.
     var ArrCheckedOptions = [Bool](repeating:false,count:6)
     
+    // MARK : Add Options function
     // TouchDragExit -> Toggle options, rate혹은 pitch가 상쇄되는 버튼 선택시 alert.
     @IBAction func TouchDragExitAddOptions(_ sender: UIButton) {
         if sender.tag == 0{
@@ -121,7 +125,7 @@ class PlaySoundsViewController: UIViewController {
     }
     
     
-    
+    // MARK : Reset Options function
     // reset 버튼을 누르면 체크 했던 옵션이 초기화 되고 배경색 또한 원래대로 돌아오게 됩니다.
     @IBAction func TouchUpBtnReset(_ sender: Any) {
         ArrCheckedOptions = [false,false,false,false,false,false]
@@ -133,6 +137,7 @@ class PlaySoundsViewController: UIViewController {
         BtnReverb.backgroundColor = UIColor.white
     }
     
+    // MARK : Play selected options function
     //선택된 옵션을 실행하는 함수 입니다. pitch와 rate를 체크했는지 확인해 주고 playSound 메서드에 넣어주게 됩니다.
     @IBAction func TouchUpInsideBtnSelectedOptionsPlaySound(_ sender: Any) {
         var rate: Float?=nil
@@ -153,7 +158,7 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.playing)
     }
     
-    
+    // MARK : Play one Option function
     //하나만 터치했을 경우 단일 효과만 주게 됩니다. 상태는 playing 상태
     @IBAction func TouchUpBtnPlaySound(_ sender: UIButton) {
         switch(ButtonType(rawValue: sender.tag)!) {
@@ -173,6 +178,7 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.playing)
     }
     
+
     //BtnStop 누르면 stopAudio 메서드 작동
     @IBAction func TouchUpBtnStop(_ sender: AnyObject) {
         stopAudio()
@@ -194,10 +200,13 @@ class PlaySoundsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    
+    // MARK : Fixing Segue
     //segue 연결
     @IBAction func TouchUpBtnShowInfo(_ sender: Any) {
         performSegue(withIdentifier: "ShowInfo", sender: recordedAudioURL)
     }
+    
     
     //segue를 통해 작성 시점(CurrentDate), 녹음파일url(recordedAudioURL)로 전달
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -10,15 +10,13 @@ import UIKit
 import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
-    
-    //audioRecorder
-    var audioRecorder: AVAudioRecorder!
-    var CurrentDate: String!
-    
-    //IBOutlet connect
+    // MARK : IBOutlet connect
     @IBOutlet weak var BtnRecord: UIButton!
     @IBOutlet weak var LblState: UILabel!
     @IBOutlet weak var BtnStop: UIButton!
+    
+    var audioRecorder: AVAudioRecorder!
+    var CurrentDate: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +29,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         super.didReceiveMemoryWarning()
     }
 
+    // MARK : Record function
     @IBAction func TouchUpBtnRecord(_ sender: Any) {
         //Recording Label, Stop Button show
         LblState.isHidden = false
@@ -55,9 +54,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         //작성되는 시점을 알기위해 GetDate라는 메서드를 만들고 이 값을 정보 창까지 전달
         CurrentDate = GetDate()
-
     }
     
+    // MARK : Get current date function
     //현재 시점을 String 형태로 return 시켜주는 함수, 여기선 녹음된 시점을 알려주게 된다.
     func GetDate() -> String{
         let date = Date()
@@ -74,7 +73,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         return String(format: "작성시간 : %0.4d년 %0.2d월 %0.2d일, %0.2d시 %0.2d분 %0.2d초",year,month,day,hour,minutes,seconds)
     }
     
-    
+    // MARK : Stop function
     @IBAction func TouchUpBtnStop(_ sender: Any) {
         //Recording Label, Stop Button hidden
         BtnRecord.isEnabled = true
@@ -84,6 +83,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
     }
+    
+    
+    // MARK : Fixing Segue
     
     //audioRecorderDidFinishRecording method
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {

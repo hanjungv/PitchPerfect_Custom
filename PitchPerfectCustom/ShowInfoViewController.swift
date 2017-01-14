@@ -12,7 +12,7 @@ import AVFoundation
 class ShowInfoViewController: UIViewController {
 
     
-    //IBOutlet link
+    // MARK : IBOutlet connect
     @IBOutlet weak var LblDuration: UILabel!
     @IBOutlet weak var LblCreationDate: UILabel!
     @IBOutlet weak var BtnHyperlinkGithub: UIButton!
@@ -23,6 +23,7 @@ class ShowInfoViewController: UIViewController {
     var recordedAudioURL:URL!
     var CurrentDate:String!
     
+    // MARK : set alert
     struct Alerts {
         static let DismissAlert = "Dismiss"
         static let RecordingDisabledTitle = "Recording Disabled"
@@ -36,12 +37,14 @@ class ShowInfoViewController: UIViewController {
         static let AudioEngineError = "Audio Engine Error"
     }
     
+    // MARK : HyperLink Set
     //깃헙으로 넘어가는 버튼을 눌렀을 때 url로 이동, 버튼 하이퍼링크 연결 연습을 위해 넣어봄
     @IBAction func TouchUpInsideBtnHyperlinkGithub(_ sender: Any) {
         let github_url = URL(string:"https://github.com/hanjungv/PitchPerfect_Custom")
         UIApplication.shared.open(github_url!)
     }
     
+    // MARK : set Audio URL function
     //duration값을 가져오기 위해 오디오 파일 URL 초기화를 해줍니다.
     func setupAudioURL() {
         do {
@@ -51,16 +54,19 @@ class ShowInfoViewController: UIViewController {
         }
     }
     
+    // MARK : setup Audio Duration
     //녹음된 Audio 길이 라벨에 표시
     func setupAudioDuration(){
         LblDuration.text = stringFromTimeInterval(interval: audioPlayer.duration) as String
     }
     
+    // MARK : setup Record Date
     //녹음된 시점 라벨에 표시
     func setupRecordDate(){
         LblCreationDate.text = CurrentDate
     }
     
+    // MARK : string From Time Interval function
     //TimeInterval값 String으로 변환하여 출력 폼으로 전환
     func stringFromTimeInterval(interval: TimeInterval) -> String {
         let time = Int(interval)
@@ -84,6 +90,7 @@ class ShowInfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK : update Audio Progress View function
     //오디오 progress 상태를 계산하여 보여주는 메서드, 이 뷰에서는 아무 효과 없는 오디오를 재생할 때 사용된다.
     func updateAudioProgressView()
     {
@@ -96,6 +103,7 @@ class ShowInfoViewController: UIViewController {
         }
     }
     
+    // MARK : Play Pure Record function
     //녹음된 목소리 그대로를 듣고 싶을 때 작동.
     @IBAction func TouchUpInsideBtnPlayPureRecord(_ sender: Any) {
         
@@ -105,7 +113,7 @@ class ShowInfoViewController: UIViewController {
         audioPlayer.play()
     }
     
-    
+    // MARK : showAlert function
     // Error message, dismiss 부분 OK로 수정
     func showAlert(_ title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
